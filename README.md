@@ -7,43 +7,7 @@ Develop a collaborative task management tool where users can create projects, as
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Management Tool</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <h1>Collaborative Task Management</h1>
-  </header>
-  <main>
-    <section class="task-form">
-      <h2>Create Task</h2>
-      <form id="taskForm">
-        <label for="taskName">Task Name:</label>
-        <input type="text" id="taskName" placeholder="Enter task name" required>
-
-        <label for="taskPriority">Priority:</label>
-        <select id="taskPriority" required>
-          <option value="High">High</option>
-          <option value="Medium">Medium</option>
-          <option value="Low">Low</option>
-        </select>
-
-        <label for="dueDate">Due Date:</label>
-        <input type="date" id="dueDate" required>
-
-        <button type="submit">Add Task</button>
-      </form>
-    </section>
-    <section class="task-list">
-      <h2>Task List</h2>
-      <ul id="taskContainer"></ul>
-    </section>
-  </main>
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-* {
+  <link rel="stylesheet" href="* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -120,17 +84,45 @@ main {
 .task-list .priority-low {
   border-left: 5px solid #2ecc71;
 }
+">
+</head>
+<body>
+  <header>
+    <h1>Collaborative Task Management</h1>
+  </header>
+  <main>
+    <section class="task-form">
+      <h2>Create Task</h2>
+      <form id="taskForm">
+        <label for="taskName">Task Name:</label>
+        <input type="text" id="taskName" placeholder="Enter task name" required>
 
+        <label for="taskPriority">Priority:</label>
+        <select id="taskPriority" required>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
 
-// Get elements
+        <label for="dueDate">Due Date:</label>
+        <input type="date" id="dueDate" required>
+
+        <button type="submit">Add Task</button>
+      </form>
+    </section>
+    <section class="task-list">
+      <h2>Task List</h2>
+      <ul id="taskContainer"></ul>
+    </section>
+  </main>
+  <script src="// Get elements
 const taskForm = document.getElementById('taskForm');
 const taskContainer = document.getElementById('taskContainer');
 
 // Add event listener for form submission
 taskForm.addEventListener('submit', function (event) {
   event.preventDefault();
-
-  // Get form data
+    // Get form data
   const taskName = document.getElementById('taskName').value;
   const taskPriority = document.getElementById('taskPriority').value;
   const dueDate = document.getElementById('dueDate').value;
@@ -158,4 +150,10 @@ taskForm.addEventListener('submit', function (event) {
   // Reset form
   taskForm.reset();
 });
+
+"></script>
+</body>
+</html>
+
+
 
