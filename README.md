@@ -1,90 +1,89 @@
-# Task-management
-Develop a collaborative task management tool where users can create projects, assign tasks to team members, and track progress. Features should include task prioritization, due dates, progress tracking, and notifications. Additionally, integrate real-time collaboration features, such as task updates or team chat.
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Management Tool</title>
-  <link rel="stylesheet" href="* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <style>
+    /* CSS Code */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  background: #f4f4f9;
-  color: #333;
-}
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f4f4f9;
+      color: #333;
+    }
 
-header {
-  background: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
-  text-align: center;
-}
+    header {
+      background: #4CAF50;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
 
-main {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
 
-.task-form h2, .task-list h2 {
-  margin-bottom: 10px;
-}
+    .task-form h2, .task-list h2 {
+      margin-bottom: 10px;
+    }
 
-.task-form label, .task-form input, .task-form select {
-  display: block;
-  width: 100%;
-  margin-bottom: 10px;
-}
+    .task-form label, .task-form input, .task-form select {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
 
-.task-form button {
-  background: #4CAF50;
-  color: white;
-  border: none;
-  padding: 10px;
-  width: 100%;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .task-form button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-.task-form button:hover {
-  background: #45a049;
-}
+    .task-form button:hover {
+      background: #45a049;
+    }
 
-.task-list ul {
-  list-style: none;
-  margin-top: 10px;
-}
+    .task-list ul {
+      list-style: none;
+      margin-top: 10px;
+    }
 
-.task-list li {
-  padding: 10px;
-  background: #f9f9f9;
-  border: 1px solid #ddd;
-  margin-bottom: 5px;
-  border-radius: 5px;
-}
+    .task-list li {
+      padding: 10px;
+      background: #f9f9f9;
+      border: 1px solid #ddd;
+      margin-bottom: 5px;
+      border-radius: 5px;
+    }
 
-.task-list .priority-high {
-  border-left: 5px solid #e74c3c;
-}
+    .task-list .priority-high {
+      border-left: 5px solid #e74c3c;
+    }
 
-.task-list .priority-medium {
-  border-left: 5px solid #f39c12;
-}
+    .task-list .priority-medium {
+      border-left: 5px solid #f39c12;
+    }
 
-.task-list .priority-low {
-  border-left: 5px solid #2ecc71;
-}
-">
+    .task-list .priority-low {
+      border-left: 5px solid #2ecc71;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -115,45 +114,40 @@ main {
       <ul id="taskContainer"></ul>
     </section>
   </main>
-  <script src="// Get elements
-const taskForm = document.getElementById('taskForm');
-const taskContainer = document.getElementById('taskContainer');
+  <script>
+    // JavaScript Code
+    const taskForm = document.getElementById('taskForm');
+    const taskContainer = document.getElementById('taskContainer');
 
-// Add event listener for form submission
-taskForm.addEventListener('submit', function (event) {
-  event.preventDefault();
-    // Get form data
-  const taskName = document.getElementById('taskName').value;
-  const taskPriority = document.getElementById('taskPriority').value;
-  const dueDate = document.getElementById('dueDate').value;
+    taskForm.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-  // Create task element
-  const taskItem = document.createElement('li');
-  taskItem.classList.add(
-    `priority-${taskPriority.toLowerCase()}`
-  );
-  taskItem.innerHTML = `
-    <strong>${taskName}</strong> 
-    <p>Priority: ${taskPriority}</p>
-    <p>Due: ${dueDate}</p>
-    <button class="delete-btn">Delete</button>
-  `;
+      // Get form data
+      const taskName = document.getElementById('taskName').value;
+      const taskPriority = document.getElementById('taskPriority').value;
+      const dueDate = document.getElementById('dueDate').value;
 
-  // Add delete functionality
-  taskItem.querySelector('.delete-btn').addEventListener('click', () => {
-    taskContainer.removeChild(taskItem);
-  });
+      // Create task element
+      const taskItem = document.createElement('li');
+      taskItem.classList.add(`priority-${taskPriority.toLowerCase()}`);
+      taskItem.innerHTML = `
+        <strong>${taskName}</strong> 
+        <p>Priority: ${taskPriority}</p>
+        <p>Due: ${dueDate}</p>
+        <button class="delete-btn">Delete</button>
+      `;
 
-  // Append task to container
-  taskContainer.appendChild(taskItem);
+      // Add delete functionality
+      taskItem.querySelector('.delete-btn').addEventListener('click', () => {
+        taskContainer.removeChild(taskItem);
+      });
 
-  // Reset form
-  taskForm.reset();
-});
+      // Append task to container
+      taskContainer.appendChild(taskItem);
 
-"></script>
+      // Reset form
+      taskForm.reset();
+    });
+  </script>
 </body>
 </html>
-
-
-
